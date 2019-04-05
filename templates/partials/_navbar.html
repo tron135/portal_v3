@@ -1,0 +1,82 @@
+{% load static %}
+<!-- Section: Navbar -->
+    <section class="section" id="section-nav">
+        <nav class="blue darken-2">
+        <div class="container">
+            <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo">Admin Panel</a>
+            <a href="#" data-target='slide-out' class="sidenav-trigger button-collapse show-on-large right">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li
+                    {% if '/' == request.path %}
+                    class="active"
+                    {% else %}
+                    {% endif %}
+                >
+                    <a href="{% url 'dashboard' %}">Dashboard</a>
+                </li>
+                <li><a href="categories.html">Categories</a></li>
+                <li
+                    {% if 'users' in request.path %}
+                    class="active"
+                    {% else %}
+                    {% endif %}
+                >
+                    <a href="{% url 'users' %}">Users</a>
+                </li>
+                <li>
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-trigger blue darken-2 hide-in-desktop show-in-mobile' href='#' data-target='dropdown'>Leads<i class="material-icons right">arrow_drop_down</i></a>
+                </li>
+            </ul>
+            </nav>
+    
+            <!-- Dropdown Structure -->
+            <ul id='dropdown' class='dropdown-content'>
+            <li><a href="leads.html" class="blue-text">Leads</a></li>
+            <li><a href="noncontact.html" class="blue-text">Non-Contact</a></li>
+            <li><a href="followup.html" class="blue-text">Follow-Up</a></li>
+            <li><a href="pending.html" class="blue-text">Pending Follow-Up</a></li>
+            <li><a href="walkin.html" class="blue-text">Walk-In</a></li>
+            </ul>
+    
+            <!-- Side nav -->
+            <ul id="slide-out" class="sidenav">
+            <li>
+                <div class="user-view">
+                <div class="background">
+                    <img src="{% static 'img/ocean.jpg' %}" alt="">
+                </div>
+                <a href="#">
+                    <img class="circle" src="{% static 'img/person1.jpg' %}" alt="">
+                </a>
+                <a href="#">
+                    <span class="name white-text">
+                    John Doe
+                    </span>
+                </a>
+                <a href="#">
+                    <span class="email white-text">
+                    joe@gmail.com
+                    </span>
+                </a>
+                </div>
+            </li>
+            <li><a href="index.html"> <i class="material-icons">dashboard</i> Dashboard</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="users.html">Users</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <a class="subheader">Account Controls</a>
+            </li>
+            <li>
+                <a href="login.html" class="waves-effect">Logout</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </section>
